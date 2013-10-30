@@ -27,6 +27,8 @@ public class Route {
     public void addKnooppunt(Knooppunt knooppunt){
         
     }
+    
+    public Route geefRoute
 
     @Override
     public String toString() {
