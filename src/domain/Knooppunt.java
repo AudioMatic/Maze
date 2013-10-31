@@ -9,11 +9,54 @@ package domain;
  * @author AudioMatic
  */
 public class Knooppunt {
-      public int x;
-        public int y;
+      public int rij;
+        public int kol;
 
-        public Knooppunt(int x, int y) {
-            this.x = x;
-            this.y = y;
+        public Knooppunt(int rij, int kol) {
+            setRij(rij);
+            setKol(kol);
         }
+
+    private void setRij(int rij) {
+        this.rij = rij;
+    }
+
+    private void setKol(int kol) {
+        this.kol = kol;
+    }
+
+    public int getRij() {
+        return rij;
+    }
+
+    public int getKol() {
+        return kol;
+    }
+
+   
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Knooppunt other = (Knooppunt) obj;
+        if (this.rij != other.rij) {
+            return false;
+        }
+        if (this.kol != other.kol) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Knooppunt{" + "rij=" + rij + ", kol=" + kol + '}';
+    }
+    
+   // Done so far..
 }

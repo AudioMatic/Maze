@@ -6,7 +6,8 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import domain.Speelveld.VeldType;
+import java.util.Objects;
 /**
  *
  * @author AudioMatic
@@ -25,11 +26,28 @@ public class Route {
     
     
     public void addKnooppunt(Knooppunt knooppunt){
+        this.kortsteWeg.add(knooppunt);
         
     }
-    
-    public Route geefRoute
 
+    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Route other = (Route) obj;
+        if (!Objects.equals(this.kortsteWeg, other.kortsteWeg)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
     @Override
     public String toString() {
         return "Route{" + "kortsteWeg=" + kortsteWeg + '}';
