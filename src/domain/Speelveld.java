@@ -31,7 +31,7 @@ public class Speelveld {
 
     public Route geefRoute(Knooppunt start, Knooppunt stop) {
            RouteMetaData bezochtevelden[][] = new RouteMetaData[this.speelveld.length][this.speelveld[0].length];
-           bezoekVeld(start, bezochtevelden , null);
+           bezoekVeld(start, bezochtevelden ,null ,0);
           
            
            
@@ -56,6 +56,7 @@ public class Speelveld {
     * @param bezocht 
     * 
     * Zoek alle mogelijke velden die je kan bezoeken
+    * Het kan ook best mogelijk zijn dat je hetzelfde veld moet bezoeken eer dat je aan u bestemming bent.
     */
     private void bezoekVeld(Knooppunt knooppunt, RouteMetaData bezocht[][] , Knooppunt prevKnooppunt , int afstand) {
         RouteMetaData routemd = new RouteMetaData();
@@ -79,21 +80,21 @@ public class Speelveld {
         
         //Zuid
         Knooppunt zuid = new Knooppunt(knooppunt.rij +1,knooppunt.kol);
-        if(zuid.rij < bezocht.length && bezocht[noord.rij][noord.kol] == null && this.speelveld[zuid.rij][zuid.kol] != VeldType.MUUR){
+        if(zuid.rij < bezocht.length && bezocht[zuid.rij][zuid.kol] == null && this.speelveld[zuid.rij][zuid.kol] != VeldType.MUUR){
            
             bezoekVeld(zuid, bezocht , knooppunt , afstand +1);
         }
         
         //Oost
           Knooppunt oost = new Knooppunt(knooppunt.rij,knooppunt.kol +1);
-        if(oost.kol < bezocht[0].length && bezocht[noord.rij][noord.kol] == null && this.speelveld[oost.rij][oost.kol] != VeldType.MUUR){
+        if(oost.kol < bezocht[0].length && bezocht[oost.rij][oost.kol] == null && this.speelveld[oost.rij][oost.kol] != VeldType.MUUR){
          
             bezoekVeld(oost, bezocht , knooppunt , afstand +1);
         }
         
         //West
           Knooppunt west = new Knooppunt(knooppunt.rij,knooppunt.kol -1);
-        if(west.kol >= 0 && bezocht[noord.rij][noord.kol] == null && this.speelveld[west.rij][west.kol] != VeldType.MUUR){
+        if(west.kol >= 0 && bezocht[west.rij][west.kol] == null && this.speelveld[west.rij][west.kol] != VeldType.MUUR){
           // 
             bezoekVeld(west, bezocht , knooppunt , afstand +1);
         }

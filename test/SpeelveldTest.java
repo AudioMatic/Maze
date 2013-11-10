@@ -33,7 +33,7 @@ public class SpeelveldTest {
     
     @Before
     public void setUp() {
-        VeldType[][] eenVeldType = new VeldType[5][6];
+        VeldType[][] eenVeldType = new VeldType[5][6]; // Rij / kolom
         for(int i = 0 ; i < eenVeldType.length ; i ++){
             for(int j = 0 ; j < eenVeldType[i].length ; j ++){
                 eenVeldType[i][j] = VeldType.LEEG;
