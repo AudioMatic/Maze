@@ -5,6 +5,7 @@
 package ui;
 
 //imports
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -19,23 +20,26 @@ import javax.swing.*;
  */
 public class Canvas extends JFrame {
 
-    public void load() {
-        new Canvas();
-    }
+    
 
     public Canvas() {
         super("Maze");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Square squares = new Square();
-        getContentPane().add(squares);
+        Component add = getContentPane().add(squares);
         for (int i = 0; i < 6; i++) {
             squares.addSquare(i * 10, i * 10, 10, 10);
         }
+     
 
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
 
 
+    }
+    
+    public void load() {
+        new Canvas();
     }
 }
