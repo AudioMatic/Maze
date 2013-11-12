@@ -23,15 +23,16 @@ public class Launcher {
      */
     public static void main(String[] args) {
         Gui gui = new Gui();
-       
+        Canvas map = new Canvas();
         // TODO code application logic here
        VeldType speelveld[][] = new VeldType[5][6];
        Speelveld eenspeelveld = new Speelveld(speelveld);
 //        
         Route korsteWeg = eenspeelveld.geefRoute(new Knooppunt(0,0), new Knooppunt(5,3));
         
-        
+        map.load();
      //   gui.load();
+        
         
     }
 
