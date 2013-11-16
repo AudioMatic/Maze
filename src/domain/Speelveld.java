@@ -38,6 +38,8 @@ public class Speelveld {
     public Route geefRoute(Knooppunt start, Knooppunt stop) {
            RouteMetaData bezochtevelden[][] = new RouteMetaData[this.speelveld.length][this.speelveld[0].length];
            bezoekVeld(start, bezochtevelden ,null ,0);
+           
+           contrueerRoute(bezochtevelden);
           
            
            
@@ -105,13 +107,23 @@ public class Speelveld {
             bezoekVeld(west, bezocht , knooppunt , afstand +1);
         }
         
-        contrueerRoute(bezocht);
+        
      
     }
     
     private Route contrueerRoute(RouteMetaData routemd[][]){
         Route korsteRoute = new Route();
         
+        
+        
+       for(int i = 0 ; i<routemd.length;i++){
+           for(int j = 0 ; j<routemd[i].length ; i ++){
+               if(routemd[i][j] != null){
+                  System.out.println(routemd[i][j].afstand); 
+               }
+               
+           }
+       }
         return null;
         
         
