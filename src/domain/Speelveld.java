@@ -14,6 +14,12 @@ import ui.Launcher;
  */
 public class Speelveld {
 
+    private static class routemd {
+
+        public routemd() {
+        }
+    }
+
     public enum VeldType {
 
         LEEG,
@@ -98,6 +104,17 @@ public class Speelveld {
           // 
             bezoekVeld(west, bezocht , knooppunt , afstand +1);
         }
+        
+        contrueerRoute(bezocht);
+     
+    }
+    
+    private Route contrueerRoute(RouteMetaData routemd[][]){
+        Route korsteRoute = new Route();
+        
+        return null;
+        
+        
         
     }
 }
