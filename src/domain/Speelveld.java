@@ -14,6 +14,8 @@ import ui.Launcher;
  */
 public class Speelveld {
 
+    
+
     private static class routemd {
 
         public routemd() {
@@ -54,8 +56,12 @@ public class Speelveld {
         
         RouteMetaData bezochtevelden[][] = new RouteMetaData[this.speelveld.length][this.speelveld[0].length];
         bezoekVeld(start, bezochtevelden, null, 0);
-
+        
+        printBezochteVelden(bezochtevelden);
+        
         return contrueerRoute(bezochtevelden , stop);
+        
+        
 
     }
 
@@ -150,8 +156,31 @@ public class Speelveld {
             out.append("\n");
         }
 
-
+       
         return out.toString();
+    }
+    
+    
+    private void printBezochteVelden(RouteMetaData[][] bezochtevelden) {
+        System.out.println("");
+        System.out.println("");
+        
+        for (int i = 0; i < bezochtevelden.length; i++) {
+            for (int j = 0; j < bezochtevelden[i].length; j++) {
+                
+                if(bezochtevelden[i][j]!= null){
+                    System.out.print(bezochtevelden[i][j].afstand + " "); 
+                } else{
+                    System.out.print("X ");
+                }
+
+                
+
+            }
+            System.out.println("");
+        }
+
+       
     }
 }
 
@@ -161,5 +190,10 @@ public class Speelveld {
  * 
  * 1. Rekening houden met u afstand (bepaalde plaatsen zal je meerdere keren moeten bezoeken)
  * 2. Effectieve route contrueert adhv alle vorige stappen
+ * 
+ * 
+ * 
+ * 1 Zorgen voor dat de Unit test macheert 
+ * 2 Maak een nieuwe test met een nieuw speelveld waarbij er tussen het start en het eindpunt geen route mogelijk is. 
  * 
  */
