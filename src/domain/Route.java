@@ -23,10 +23,13 @@ public class Route {
         
     }
 
-    
-    
-    public void addKnooppunt(Knooppunt knooppunt){
+     public void appendKnooppunt(Knooppunt knooppunt){
         this.kortsteWeg.add(knooppunt);
+        
+    }
+    
+    public void prependKnooppunt(Knooppunt knooppunt){
+        this.kortsteWeg.add(0, knooppunt);
         
     }
 

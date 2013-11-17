@@ -55,7 +55,7 @@ public class Knooppunt {
 
     @Override
     public String toString() {
-        return "Knooppunt{" + "rij=" + rij + ", kol=" + kol + '}';
+        return "["+ this.kol + "|"+this.rij+"]";
     }
     
    // Done so far..
