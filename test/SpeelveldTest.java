@@ -2,6 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
 import domain.Knooppunt;
 import domain.Route;
 import domain.Speelveld;
@@ -18,57 +19,60 @@ import static org.junit.Assert.*;
  * @author AudioMatic
  */
 public class SpeelveldTest {
-    Speelveld eenSpeelveld ;
+
+    Speelveld eenSpeelveld;
+
     public SpeelveldTest() {
-        
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
-        VeldType[][] eenVeldType = new VeldType[5][6]; // Rij / kolom
-        for(int i = 0 ; i < eenVeldType.length ; i ++){
-            for(int j = 0 ; j < eenVeldType[i].length ; j ++){
-                eenVeldType[i][j] = VeldType.LEEG;
+        VeldType[][] eenVeldType1 = new VeldType[5][6]; // Rij / kolom
+        VeldType[][] eenVeldType2 = new VeldType[5][6]; // Rij / kolom
+        for (int i = 0; i < eenVeldType1.length; i++) {
+            for (int j = 0; j < eenVeldType1[i].length; j++) {
+                eenVeldType1[i][j] = VeldType.LEEG;
             }
         }
-        
-        
-        
-        eenVeldType[0][1] = VeldType.MUUR;
-         eenVeldType[1][1] = VeldType.MUUR;
-         eenVeldType[1][2] = VeldType.MUUR;
-         eenVeldType[1][4] = VeldType.MUUR;
-         eenVeldType[2][4] = VeldType.MUUR;
-         eenVeldType[3][0] = VeldType.MUUR;
-         eenVeldType[3][1] = VeldType.MUUR;
-         eenVeldType[3][2] = VeldType.MUUR;
-   //      eenVeldType[3][4] = VeldType.MUUR;
-         eenVeldType[4][2] = VeldType.MUUR;
-         eenVeldType[4][4] = VeldType.MUUR;
-         
+
+
+
+        eenVeldType1[0][1] = VeldType.MUUR;
+        eenVeldType1[1][1] = VeldType.MUUR;
+        eenVeldType1[1][2] = VeldType.MUUR;
+        eenVeldType1[1][4] = VeldType.MUUR;
+        eenVeldType1[2][4] = VeldType.MUUR;
+        eenVeldType1[3][0] = VeldType.MUUR;
+        eenVeldType1[3][1] = VeldType.MUUR;
+        eenVeldType1[3][2] = VeldType.MUUR;
+        eenVeldType1[3][4] = VeldType.MUUR;
+        eenVeldType1[4][2] = VeldType.MUUR;
+        eenVeldType1[4][4] = VeldType.MUUR;
+
         /*...*/
-         
-        eenSpeelveld = new Speelveld(eenVeldType);
+
+        eenSpeelveld = new Speelveld(eenVeldType1);
         System.out.println(eenSpeelveld.toString());
     }
-    
+
     @After
     public void tearDown() {
     }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
+
     @Test
-     public void korsteRoute() {
-        
+    public void korsteRoute1() {
+
         Route verwachteRoute = new Route();
         verwachteRoute.appendKnooppunt(new Knooppunt(0, 0));
         verwachteRoute.appendKnooppunt(new Knooppunt(1, 0));
@@ -76,9 +80,13 @@ public class SpeelveldTest {
         verwachteRoute.appendKnooppunt(new Knooppunt(2, 1));
         verwachteRoute.appendKnooppunt(new Knooppunt(2, 2));
         verwachteRoute.appendKnooppunt(new Knooppunt(2, 3));
-        verwachteRoute.appendKnooppunt(new Knooppunt(3, 3));
-        verwachteRoute.appendKnooppunt(new Knooppunt(3, 4));
+        verwachteRoute.appendKnooppunt(new Knooppunt(1, 3));
+        verwachteRoute.appendKnooppunt(new Knooppunt(0, 3));
+        verwachteRoute.appendKnooppunt(new Knooppunt(0, 4));
+        verwachteRoute.appendKnooppunt(new Knooppunt(0, 5));
+        verwachteRoute.appendKnooppunt(new Knooppunt(1, 5));
+        verwachteRoute.appendKnooppunt(new Knooppunt(2, 5));
         verwachteRoute.appendKnooppunt(new Knooppunt(3, 5));
-        assertEquals(verwachteRoute,eenSpeelveld.geefRoute(new Knooppunt(0, 0),new Knooppunt(3, 5)));
+        assertEquals(verwachteRoute, eenSpeelveld.geefRoute(new Knooppunt(0, 0), new Knooppunt(3, 5)));
     }
 }
