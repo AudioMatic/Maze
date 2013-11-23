@@ -20,7 +20,8 @@ import static org.junit.Assert.*;
  */
 public class SpeelveldTest {
 
-    Speelveld eenSpeelveld;
+    Speelveld eenSpeelveld1; 
+    Speelveld eenSpeelveld2;
 
     public SpeelveldTest() {
     }
@@ -38,12 +39,19 @@ public class SpeelveldTest {
         VeldType[][] eenVeldType1 = new VeldType[5][6]; // Rij / kolom
         VeldType[][] eenVeldType2 = new VeldType[5][6]; // Rij / kolom
         
+        //initialiseer velden
+        
         initialiseerVeld1(eenVeldType1);
+        initialiseerVeld2(eenVeldType2);
         
         
 
-        eenSpeelveld = new Speelveld(eenVeldType1);
-        System.out.println(eenSpeelveld.toString());
+        eenSpeelveld1 = new Speelveld(eenVeldType1);
+        System.out.println(eenSpeelveld1.toString());
+        System.out.println("");
+         eenSpeelveld2 = new Speelveld(eenVeldType2);
+        System.out.println(eenSpeelveld1.toString());
+        System.out.println("");
     }
 
     @After
@@ -70,7 +78,27 @@ public class SpeelveldTest {
         verwachteRoute.appendKnooppunt(new Knooppunt(1, 5));
         verwachteRoute.appendKnooppunt(new Knooppunt(2, 5));
         verwachteRoute.appendKnooppunt(new Knooppunt(3, 5));
-        assertEquals(verwachteRoute, eenSpeelveld.geefRoute(new Knooppunt(0, 0), new Knooppunt(3, 5)));
+        assertEquals(verwachteRoute, eenSpeelveld1.geefRoute(new Knooppunt(0, 0), new Knooppunt(3, 5)));
+    }
+    
+     @Test
+    public void korsteRoute2() {
+
+        Route verwachteRoute = new Route();
+        verwachteRoute.appendKnooppunt(new Knooppunt(0, 0));
+        verwachteRoute.appendKnooppunt(new Knooppunt(1, 0));
+        verwachteRoute.appendKnooppunt(new Knooppunt(2, 0));
+        verwachteRoute.appendKnooppunt(new Knooppunt(2, 1));
+        verwachteRoute.appendKnooppunt(new Knooppunt(2, 2));
+        verwachteRoute.appendKnooppunt(new Knooppunt(2, 3));
+        verwachteRoute.appendKnooppunt(new Knooppunt(1, 3));
+        verwachteRoute.appendKnooppunt(new Knooppunt(0, 3));
+        verwachteRoute.appendKnooppunt(new Knooppunt(0, 4));
+        verwachteRoute.appendKnooppunt(new Knooppunt(0, 5));
+        verwachteRoute.appendKnooppunt(new Knooppunt(1, 5));
+        verwachteRoute.appendKnooppunt(new Knooppunt(2, 5));
+        verwachteRoute.appendKnooppunt(new Knooppunt(3, 5));
+        assertEquals(verwachteRoute, eenSpeelveld2.geefRoute(new Knooppunt(0, 0), new Knooppunt(3, 5)));
     }
 
     private void initialiseerVeld1(VeldType[][] eenVeldType1) {
@@ -95,6 +123,36 @@ public class SpeelveldTest {
         eenVeldType1[4][2] = VeldType.MUUR;
         eenVeldType1[4][4] = VeldType.MUUR;
 
-        /*...*/
+        
+    }
+
+    private void initialiseerVeld2(VeldType[][] eenVeldType2) {
+        
+        
+          
+        for (int i = 0; i < eenVeldType2.length; i++) {
+            for (int j = 0; j < eenVeldType2[i].length; j++) {
+                eenVeldType2[i][j] = VeldType.LEEG;
+            }
+        }
+
+
+
+        eenVeldType2[0][1] = VeldType.MUUR;
+        eenVeldType2[1][1] = VeldType.MUUR;
+        eenVeldType2[1][2] = VeldType.MUUR;
+        eenVeldType2[1][4] = VeldType.MUUR;
+        eenVeldType2[2][4] = VeldType.MUUR;
+        eenVeldType2[3][0] = VeldType.MUUR;
+        eenVeldType2[3][1] = VeldType.MUUR;
+        eenVeldType2[3][2] = VeldType.MUUR;
+    //    eenVeldType2[3][4] = VeldType.MUUR;
+        eenVeldType2[4][2] = VeldType.MUUR;
+        eenVeldType2[4][4] = VeldType.MUUR;
+
+        
+        
+        
+        
     }
 }
