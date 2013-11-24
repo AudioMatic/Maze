@@ -14,8 +14,6 @@ import ui.Launcher;
  */
 public class Speelveld {
 
-    
-
     private static class routemd {
 
         public routemd() {
@@ -39,11 +37,16 @@ public class Speelveld {
 
             }
 
-
         }
     }
-    private VeldType speelveld[][];
+    protected VeldType speelveld[][];
 
+    public Speelveld( int dimrij , int dimkol) {
+       
+    }
+
+    
+    
     public Speelveld(VeldType[][] speelveld) {
         setSpeelveld(speelveld);
     }
@@ -53,15 +56,22 @@ public class Speelveld {
     }
 
     public Route geefRoute(Knooppunt start, Knooppunt stop) {
+
         
+        if(start.equals(stop)){
+           Route routeNaarZelfdePunt = new Route();
+           routeNaarZelfdePunt.appendKnooppunt(start);
+           routeNaarZelfdePunt.appendKnooppunt(stop);
+           
+           return routeNaarZelfdePunt;
+
+        }
         RouteMetaData bezochtevelden[][] = new RouteMetaData[this.speelveld.length][this.speelveld[0].length];
         bezoekVeld(start, bezochtevelden, null, 0);
-        
+
         printBezochteVelden(bezochtevelden);
-        
-        return contrueerRoute(bezochtevelden , stop);
-        
-        
+
+        return contrueerRoute(bezochtevelden, stop);
 
     }
 
@@ -90,62 +100,63 @@ public class Speelveld {
         routemd.afstand = afstand;
         bezocht[knooppunt.rij][knooppunt.kol] = routemd;
 
-
         /**
          * Bepaal welke kant je uitgaat
          */
         //Noord
         Knooppunt noord = new Knooppunt(knooppunt.rij - 1, knooppunt.kol);
-        if (noord.rij >= 0 && bezocht[noord.rij][noord.kol] == null && this.speelveld[noord.rij][noord.kol] != VeldType.MUUR) {
+        if (noord.rij >= 0 && (bezocht[noord.rij][noord.kol] == null
+                || afstand < bezocht[noord.rij][noord.kol].afstand) && this.speelveld[noord.rij][noord.kol] != VeldType.MUUR) {
 
             bezoekVeld(noord, bezocht, knooppunt, afstand + 1);
         }
 
         //Zuid
         Knooppunt zuid = new Knooppunt(knooppunt.rij + 1, knooppunt.kol);
-        if (zuid.rij < bezocht.length && bezocht[zuid.rij][zuid.kol] == null && this.speelveld[zuid.rij][zuid.kol] != VeldType.MUUR) {
+        if (zuid.rij < bezocht.length && (bezocht[zuid.rij][zuid.kol] == null
+                || afstand < bezocht[zuid.rij][zuid.kol].afstand) && this.speelveld[zuid.rij][zuid.kol] != VeldType.MUUR) {
 
             bezoekVeld(zuid, bezocht, knooppunt, afstand + 1);
         }
 
         //Oost
         Knooppunt oost = new Knooppunt(knooppunt.rij, knooppunt.kol + 1);
-        if (oost.kol < bezocht[0].length && bezocht[oost.rij][oost.kol] == null && this.speelveld[oost.rij][oost.kol] != VeldType.MUUR) {
+        if (oost.kol < bezocht[0].length && (bezocht[oost.rij][oost.kol] == null
+                || afstand < bezocht[oost.rij][oost.kol].afstand) && this.speelveld[oost.rij][oost.kol] != VeldType.MUUR) {
 
             bezoekVeld(oost, bezocht, knooppunt, afstand + 1);
         }
 
         //West
         Knooppunt west = new Knooppunt(knooppunt.rij, knooppunt.kol - 1);
-        if (west.kol >= 0 && bezocht[west.rij][west.kol] == null && this.speelveld[west.rij][west.kol] != VeldType.MUUR) {
+        if (west.kol >= 0 && (bezocht[west.rij][west.kol] == null
+                || afstand < bezocht[west.rij][west.kol].afstand) && this.speelveld[west.rij][west.kol] != VeldType.MUUR) {
             // 
             bezoekVeld(west, bezocht, knooppunt, afstand + 1);
         }
 
-
-
     }
 
     private Route contrueerRoute(RouteMetaData routemd[][], Knooppunt eind) {
-        Route korsteRoute = new Route();
-        
-        Knooppunt huidig = eind;
-        
-        while (huidig != null) {
-            korsteRoute.prependKnooppunt(huidig);
-            huidig = routemd[huidig.rij][huidig.kol].vorigeStap;
-            
+        Route korsteRoute = null;
+
+        if (routemd[eind.rij][eind.kol] != null) {
+            korsteRoute = new Route();
+            Knooppunt huidig = eind;
+            while (huidig != null) {
+                korsteRoute.prependKnooppunt(huidig);
+                huidig = routemd[huidig.rij][huidig.kol].vorigeStap;
+
+            }
         }
-        
+
         return korsteRoute;
 
     }
 
-    
     @Override
     public String toString() {
         StringBuffer out = new StringBuffer();
-
 
         for (int i = 0; i < this.speelveld.length; i++) {
             for (int j = 0; j < this.speelveld[i].length; j++) {
@@ -156,31 +167,26 @@ public class Speelveld {
             out.append("\n");
         }
 
-       
         return out.toString();
     }
-    
-    
+
     private void printBezochteVelden(RouteMetaData[][] bezochtevelden) {
         System.out.println("");
         System.out.println("");
-        
+
         for (int i = 0; i < bezochtevelden.length; i++) {
             for (int j = 0; j < bezochtevelden[i].length; j++) {
-                
-                if(bezochtevelden[i][j]!= null){
-                    System.out.print(bezochtevelden[i][j].afstand + " "); 
-                } else{
+
+                if (bezochtevelden[i][j] != null) {
+                    System.out.print(bezochtevelden[i][j].afstand + " ");
+                } else {
                     System.out.print("X ");
                 }
-
-                
 
             }
             System.out.println("");
         }
 
-       
     }
 }
 

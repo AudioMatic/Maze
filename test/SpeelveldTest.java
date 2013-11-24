@@ -50,7 +50,7 @@ public class SpeelveldTest {
         System.out.println(eenSpeelveld1.toString());
         System.out.println("");
         eenSpeelveld2 = new Speelveld(eenVeldType2);
-        System.out.println(eenSpeelveld1.toString());
+        System.out.println(eenSpeelveld2.toString());
         System.out.println("");
 
         eenSpeelveld3 = new Speelveld(eenVeldType3);
@@ -64,6 +64,14 @@ public class SpeelveldTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
+    
+    
+    
+    /**
+     * 
+     * Een weg mogelijk
+     */
+    
 
     @Test
     public void korsteRoute1() {
@@ -84,6 +92,12 @@ public class SpeelveldTest {
         verwachteRoute.appendKnooppunt(new Knooppunt(3, 5));
         assertEquals(verwachteRoute, eenSpeelveld1.geefRoute(new Knooppunt(0, 0), new Knooppunt(3, 5)));
     }
+    
+    
+     /**
+     * 
+     * Meerdere wegen zijn mogelijk
+     */
 
     @Test
     public void korsteRoute2() {
@@ -100,6 +114,38 @@ public class SpeelveldTest {
         verwachteRoute.appendKnooppunt(new Knooppunt(3, 5));
 
         assertEquals(verwachteRoute, eenSpeelveld2.geefRoute(new Knooppunt(0, 0), new Knooppunt(3, 5)));
+    }
+    
+    
+     /**
+     * 
+     * Geen enkele weg is mogelijk
+     */
+    
+     @Test
+    public void korsteRoute3() {
+
+        Route verwachteRoute = new Route();
+        
+        assertEquals(null, eenSpeelveld3.geefRoute(new Knooppunt(0, 0), new Knooppunt(3, 5)));
+    }
+    
+    
+    
+     /**
+     * 
+     * Start en eind zijn gelijk aan mekaar
+     */
+    
+     @Test
+    public void korsteRoute4() {
+
+        Route verwachteRoute = new Route();
+        
+        verwachteRoute.appendKnooppunt(new Knooppunt(3, 5));
+        verwachteRoute.appendKnooppunt(new Knooppunt(3, 5));
+        
+        assertEquals(verwachteRoute, eenSpeelveld2.geefRoute(new Knooppunt(3, 5), new Knooppunt(3, 5)));
     }
 
     private void initialiseerVeld1(VeldType[][] eenVeldType1) {
