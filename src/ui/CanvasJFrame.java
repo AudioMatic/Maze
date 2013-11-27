@@ -13,7 +13,7 @@ import javax.swing.JFrame;
  * @author johan
  */
 public class CanvasJFrame extends JFrame {
-    
+    private CanvasPanel panel = new CanvasPanel(null);
     
         public CanvasJFrame() {
             initUI();
@@ -29,7 +29,10 @@ public class CanvasJFrame extends JFrame {
         }
 
         public void load() {
-         //   new CanvasPanel(s;
+         getContentPane().add(new CanvasPanel(null));
+         
+         
+            
             setVisible(true);
         }
     
