@@ -6,6 +6,7 @@
 
 package ui;
 
+import domain.Speelveld;
 import javax.swing.JFrame;
 
 /**
@@ -13,7 +14,7 @@ import javax.swing.JFrame;
  * @author johan
  */
 public class CanvasJFrame extends JFrame {
-    private CanvasPanel panel = new CanvasPanel(null);
+  //  private CanvasPanel panel = new CanvasPanel(null);
     
         public CanvasJFrame() {
             initUI();
@@ -28,12 +29,22 @@ public class CanvasJFrame extends JFrame {
 
         }
 
-        public void load() {
-         getContentPane().add(new CanvasPanel(null));
+        public void load(Speelveld.VeldType speelveld) {
+         getContentPane().add(new CanvasPanel(speelveld));
          
          
             
             setVisible(true);
         }
+
+    void load(SpeelveldUI eenspeelveld) {
+            SpeelveldUI speelveld = eenspeelveld;
+         getContentPane().add(new CanvasPanel(speelveld));
+         
+         
+            
+            setVisible(true);
+        
+    }
     
 }

@@ -28,9 +28,9 @@ public class SpeelveldUI extends Speelveld {
          mazeUI.setColor(Color.GRAY);
          for(int i = 0; i < speelveld.length ; i ++){
              for(int j = 0 ; j< speelveld[i].length ; j++){
-                 if(speelveld[i][j] == VeldType.MUUR){
+                // if(speelveld[i][j] == VeldType.MUUR){
                      mazeUI.fillRect(j * 20, i * 20 , 20, 20);
-                 }
+                // }
                      
                  
              }

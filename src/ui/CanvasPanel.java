@@ -5,6 +5,7 @@
 package ui;
 
 //imports
+import domain.Speelveld;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -21,6 +22,10 @@ public class CanvasPanel extends JPanel {
         this.speelveldUI = speelveldui;
         
 
+    }
+
+    CanvasPanel(Speelveld.VeldType speelveld) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
    
