@@ -7,6 +7,7 @@
 package domain.speelveldGen;
 
 import domain.Speelveld;
+import static java.lang.Math.random;
 
 /**
  *
@@ -18,9 +19,10 @@ public class SpeelveldGenerator extends Speelveld {
     private int kol = 0;
 
     public SpeelveldGenerator(VeldType[][] speelveld , int rij , int kol) {
-        genSpeelveld(speelveld);
+        super(speelveld);
         setRij(rij);
         setKol(kol);
+        genSpeelveld();
         
         
     }
@@ -35,12 +37,30 @@ public class SpeelveldGenerator extends Speelveld {
     }
     
 
-    private VeldType genSpeelveld(VeldType[][] speelveld) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private VeldType[][] genSpeelveld() {
+        
+        int max = 2;
+        int min = 1;
+        int range = (max - min) + 1;
+        int type = 0;
+        
+        for(int i = 0; i < speelveld.length ; i ++){
+             for(int j = 0 ; j< speelveld[i].length ; j++){
+                 type = (int) (Math.random() * range)) + min;
+                 
+                 if(speelveld[i][j] == VeldType.MUUR){
+                   
+                 }
+                     
+                 
+             }
+        
+       return speelveld;
     }
+        return speelveld;
     
     
     
     
     
-}
+}}
