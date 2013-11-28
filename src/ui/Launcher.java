@@ -6,6 +6,7 @@ package ui;
 
 
 import domain.Speelveld.VeldType;
+import domain.speelveldGen.SpeelveldGenerator;
 
 
 /**

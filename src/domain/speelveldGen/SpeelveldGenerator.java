@@ -46,10 +46,10 @@ public class SpeelveldGenerator extends Speelveld {
         
         for(int i = 0; i < speelveld.length ; i ++){
              for(int j = 0 ; j< speelveld[i].length ; j++){
-                 type = (int) (Math.random() * range)) + min;
+                 type = (int) (Math.random() * range) + min;
                  
-                 if(speelveld[i][j] == VeldType.MUUR){
-                   
+                 if(type == 2){
+                   speelveld[i][j] = VeldType.MUUR;
                  }
                      
                  
