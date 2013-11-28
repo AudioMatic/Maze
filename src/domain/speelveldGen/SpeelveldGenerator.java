@@ -52,6 +52,8 @@ public class SpeelveldGenerator extends Speelveld {
                  
                  if(type == 2){
                    speelveld[i][j] = VeldType.MUUR;
+                 }else{
+                      speelveld[i][j] = VeldType.LEEG;
                  }
                      
                  
