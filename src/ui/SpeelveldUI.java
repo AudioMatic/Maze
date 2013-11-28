@@ -30,6 +30,8 @@ public class SpeelveldUI extends Speelveld {
              for(int j = 0 ; j< speelveld[i].length ; j++){
                  if(speelveld[i][j] == VeldType.MUUR){
                      mazeUI.fillRect(j * 20, i * 20 , 20, 20);
+                 } else{
+                     mazeUI.drawRect(j * 20 , i * 20 , 20, 20);
                  }
                      
                  

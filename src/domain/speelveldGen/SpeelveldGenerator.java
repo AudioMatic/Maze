@@ -29,11 +29,13 @@ public class SpeelveldGenerator extends Speelveld {
 
     private void setRij(int rij) throws IllegalArgumentException { 
         if(rij <= 0) throw new IllegalArgumentException("Rij mag niet onder 0 gaan");
+        this.rij = rij;
         
     }
 
     private void setKol(int kol)throws IllegalArgumentException {
          if(rij <= 0) throw new IllegalArgumentException("Kolom mag niet onder 0 gaan");
+         this.kol = kol;
     }
     
 
