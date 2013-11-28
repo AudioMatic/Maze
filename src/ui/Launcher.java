@@ -25,6 +25,7 @@ public class Launcher {
         CanvasJFrame map = new CanvasJFrame();
         
       VeldType speelveld[][] = new VeldType[5][6];
+      
        SpeelveldUI eenspeelveld = new SpeelveldUI(speelveld);
        
 //        Route korsteWeg = eenspeelveld.geefRoute(new Knooppunt(0,0), new Knooppunt(5,3));
