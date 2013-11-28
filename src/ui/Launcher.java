@@ -4,12 +4,9 @@
  */
 package ui;
 
-import domain.Knooppunt;
-import domain.Route;
-import domain.Speelveld;
+
 import domain.Speelveld.VeldType;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  *
