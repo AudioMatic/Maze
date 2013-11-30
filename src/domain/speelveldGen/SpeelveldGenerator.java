@@ -5,6 +5,7 @@
  */
 package domain.speelveldGen;
 
+import domain.Knooppunt;
 import domain.Speelveld;
 import static java.lang.Math.random;
 
@@ -61,6 +62,25 @@ public class SpeelveldGenerator extends Speelveld {
 
         }
         return speelveld;
+
+    }
+
+    public void setBeginPunt(Knooppunt node) throws IllegalArgumentException {
+
+    }
+
+    public void setEindPunt(Knooppunt node) throws IllegalArgumentException {
+
+    }
+
+    public boolean setEindPuntRandom() {
+        return false;
+
+    }
+
+    public boolean setEindPunt()  {
+        
+        return false;
 
     }
 }
