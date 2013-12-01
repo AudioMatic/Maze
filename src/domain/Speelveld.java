@@ -23,7 +23,9 @@ public class Speelveld {
     public enum VeldType {
 
         LEEG,
-        MUUR;
+        MUUR,
+        START,
+        END;
 
         @Override
         public String toString() {
