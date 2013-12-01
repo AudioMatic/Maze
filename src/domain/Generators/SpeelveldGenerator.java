@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain.speelveldGen;
+package domain.Generators;
 
 import domain.Knooppunt;
 import domain.Route;
@@ -19,11 +19,11 @@ public class SpeelveldGenerator extends Speelveld {
     private int rij = 0;
     private int kol = 0;
 
-    public SpeelveldGenerator(VeldType[][] speelveld, int rij, int kol) {
+    public SpeelveldGenerator(VeldType[][] speelveld, int rij, int kol , double aandeelLeeg) {
         super(speelveld);
         setRij(rij);
         setKol(kol);
-        genSpeelveld();
+        genSpeelveld(aandeelLeeg);
 
     }
 
@@ -42,7 +42,8 @@ public class SpeelveldGenerator extends Speelveld {
         this.kol = kol;
     }
 
-    private VeldType[][] genSpeelveld() {
+    private VeldType[][] genSpeelveld(double aandeelLeeg) throws IllegalArgumentException {
+        if(aandeelLeeg < 0 || aandeelLeeg > 1) throw new IllegalArgumentException("Getal moet tussen 0 en 1 liggen");
 
         int max = 2;
         int min = 1;
@@ -51,12 +52,14 @@ public class SpeelveldGenerator extends Speelveld {
 
         for (int i = 0; i < speelveld.length; i++) {
             for (int j = 0; j < speelveld[i].length; j++) {
-                type = (int) (Math.random() * range) + min;
+                
+                
+               // type = (int) (Math.random() * range) + min;
 
-                if (type == 2) {
-                    speelveld[i][j] = VeldType.MUUR;
-                } else {
+                if (Math.random() < aandeelLeeg ) {
                     speelveld[i][j] = VeldType.LEEG;
+                } else {
+                    speelveld[i][j] = VeldType.MUUR;
                 }
 
             }
@@ -66,26 +69,5 @@ public class SpeelveldGenerator extends Speelveld {
 
     }
 
-    public void setBeginPunt(Knooppunt node) throws IllegalArgumentException {
-        
-
-    }
-
-    public void setEindPunt(Knooppunt node) throws IllegalArgumentException {
-
-    }
-
-    public Knooppunt setEindPuntRandom() {
-        int rij = 0;
-        int kol = 0;
-        
-        return null;
-
-    }
-
-    public boolean setEindPunt()  {
-        
-        return false;
-
-    }
+  
 }

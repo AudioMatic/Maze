@@ -24,6 +24,10 @@ public class SpeelveldTest {
     Speelveld eenSpeelveld2;
     Speelveld eenSpeelveld3;
 
+    VeldType[][] eenVeldType1 = new VeldType[5][6]; // Rij / kolom
+    VeldType[][] eenVeldType2 = new VeldType[5][6]; // Rij / kolom
+    VeldType[][] eenVeldType3 = new VeldType[5][6]; // Rij / kolom
+
     public SpeelveldTest() {
     }
 
@@ -37,9 +41,6 @@ public class SpeelveldTest {
 
     @Before
     public void setUp() {
-        VeldType[][] eenVeldType1 = new VeldType[5][6]; // Rij / kolom
-        VeldType[][] eenVeldType2 = new VeldType[5][6]; // Rij / kolom
-        VeldType[][] eenVeldType3 = new VeldType[5][6]; // Rij / kolom
 
         //initialiseer velden
         initialiseerVeld1(eenVeldType1);
@@ -64,15 +65,11 @@ public class SpeelveldTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    
-    
-    
+
     /**
-     * 
+     *
      * Een weg mogelijk
      */
-    
-
     @Test
     public void korsteRoute1() {
 
@@ -92,13 +89,11 @@ public class SpeelveldTest {
         verwachteRoute.appendKnooppunt(new Knooppunt(3, 5));
         assertEquals(verwachteRoute, eenSpeelveld1.geefRoute(new Knooppunt(0, 0), new Knooppunt(3, 5)));
     }
-    
-    
-     /**
-     * 
+
+    /**
+     *
      * Meerdere wegen zijn mogelijk
      */
-
     @Test
     public void korsteRoute2() {
 
@@ -115,38 +110,48 @@ public class SpeelveldTest {
 
         assertEquals(verwachteRoute, eenSpeelveld2.geefRoute(new Knooppunt(0, 0), new Knooppunt(3, 5)));
     }
-    
-    
-     /**
-     * 
+
+    /**
+     *
      * Geen enkele weg is mogelijk
      */
-    
-     @Test
+    @Test
     public void korsteRoute3() {
 
         Route verwachteRoute = new Route();
-        
+
         assertEquals(null, eenSpeelveld3.geefRoute(new Knooppunt(0, 0), new Knooppunt(3, 5)));
     }
-    
-    
-    
-     /**
-     * 
+
+    /**
+     *
      * Start en eind zijn gelijk aan mekaar
      */
-    
-     @Test
+    @Test
     public void korsteRoute4() {
 
         Route verwachteRoute = new Route();
-        
+
         verwachteRoute.appendKnooppunt(new Knooppunt(3, 5));
         verwachteRoute.appendKnooppunt(new Knooppunt(3, 5));
-        
+
         assertEquals(verwachteRoute, eenSpeelveld2.geefRoute(new Knooppunt(3, 5), new Knooppunt(3, 5)));
     }
+
+    @Test
+    public void getLeegKnooppunt() {
+
+        Knooppunt knooppunt = null;
+
+        for (int i = 0; i < 100; i++) {
+            knooppunt = eenSpeelveld1.getLeegKnooppunt();
+
+            assertEquals(eenVeldType1[knooppunt.rij][knooppunt.kol], VeldType.LEEG) ;
+        }
+
+    }
+    
+    
 
     private void initialiseerVeld1(VeldType[][] eenVeldType1) {
 

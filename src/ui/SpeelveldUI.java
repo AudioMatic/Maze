@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ui;
 
 import domain.Speelveld;
@@ -17,30 +16,28 @@ import java.awt.Graphics2D;
  */
 public class SpeelveldUI extends Speelveld {
 
-    public SpeelveldUI(VeldType[][] veldtypematrix ) {
+    public SpeelveldUI(VeldType[][] veldtypematrix) {
         super(veldtypematrix);
     }
-    
-     public void drawSquares(Graphics g){
-         Graphics2D mazeUI = (Graphics2D) g;
-         mazeUI.setBackground(Color.WHITE);
-         
-         mazeUI.setColor(Color.GRAY);
-         for(int i = 0; i < speelveld.length ; i ++){
-             for(int j = 0 ; j< speelveld[i].length ; j++){
-                 if(speelveld[i][j] == VeldType.MUUR){
-                     mazeUI.fillRect(j * 20, i * 20 , 20, 20);
-                 } else{
-                     mazeUI.drawRect(j * 20 , i * 20 , 20, 20);
-                 }
-                     
-                 
-             }
-         }
-         
-         
-         
-        
+
+    public void drawSpeelveld(Graphics g) {
+        Graphics2D mazeUI = (Graphics2D) g;
+        mazeUI.setBackground(Color.WHITE);
+
+        mazeUI.setColor(Color.GRAY);
+        for (int i = 0; i < speelveld.length; i++) {
+            for (int j = 0; j < speelveld[i].length; j++) {
+                if (speelveld[i][j] == VeldType.MUUR) {
+                    mazeUI.fillRect(j * 20, i * 20, 20, 20);
+                } else {
+                    mazeUI.drawRect(j * 20, i * 20, 20, 20);
+                }
+
+            }
+        }
+
     }
     
+  
+
 }

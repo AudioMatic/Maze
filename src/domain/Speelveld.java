@@ -23,9 +23,7 @@ public class Speelveld {
     public enum VeldType {
 
         LEEG,
-        MUUR,
-        START,
-        END;
+        MUUR;
 
         @Override
         public String toString() {
@@ -43,12 +41,10 @@ public class Speelveld {
     }
     protected VeldType speelveld[][];
 
-    public Speelveld( int dimrij , int dimkol) {
-       
+    public Speelveld(int dimrij, int dimkol) {
+
     }
 
-    
-    
     public Speelveld(VeldType[][] speelveld) {
         setSpeelveld(speelveld);
     }
@@ -57,15 +53,15 @@ public class Speelveld {
         this.speelveld = speelveld;
     }
 
-    public Route geefRoute(Knooppunt start, Knooppunt stop) {
+    public Route geefRoute(Knooppunt start, Knooppunt stop) throws IllegalArgumentException {
+        if(knooppuntOpMuur(stop) == true || knooppuntOpMuur(start) == true) throw new IllegalArgumentException("start en/of stop mogen niet op een muur vallen");
 
-        
-        if(start.equals(stop)){
-           Route routeNaarZelfdePunt = new Route();
-           routeNaarZelfdePunt.appendKnooppunt(start);
-           routeNaarZelfdePunt.appendKnooppunt(stop);
-           
-           return routeNaarZelfdePunt;
+        if (start.equals(stop)) {
+            Route routeNaarZelfdePunt = new Route();
+            routeNaarZelfdePunt.appendKnooppunt(start);
+            routeNaarZelfdePunt.appendKnooppunt(stop);
+
+            return routeNaarZelfdePunt;
 
         }
         RouteMetaData bezochtevelden[][] = new RouteMetaData[this.speelveld.length][this.speelveld[0].length];
@@ -139,6 +135,31 @@ public class Speelveld {
 
     }
 
+    public Knooppunt getLeegKnooppunt() {
+
+        int maxRij = this.speelveld.length;
+        int maxKol = this.speelveld[0].length;
+        int rangeRij = maxRij - 1;
+        int rangeKol = maxKol - 1;
+        int rij = (int) (Math.random() * rangeRij);
+        int kol = (int) (Math.random() * rangeKol);
+        Knooppunt knooppunt = new Knooppunt(rij, kol);
+        while (knooppuntOpMuur(knooppunt) == true) {
+            rij = (int) (Math.random() * rangeRij);
+            kol = (int) (Math.random() * rangeKol);
+            knooppunt.rij = rij;
+            knooppunt.kol = kol;
+        }
+
+        return knooppunt;
+
+    }
+
+    private boolean knooppuntOpMuur(Knooppunt knooppunt) {
+        return (this.speelveld[knooppunt.rij][knooppunt.kol] == Speelveld.VeldType.MUUR);
+
+    }
+
     private Route contrueerRoute(RouteMetaData routemd[][], Knooppunt eind) {
         Route korsteRoute = null;
 
@@ -192,16 +213,15 @@ public class Speelveld {
     }
 }
 
-
 /**
  * TODO
- * 
- * 1. Rekening houden met u afstand (bepaalde plaatsen zal je meerdere keren moeten bezoeken)
- * 2. Effectieve route contrueert adhv alle vorige stappen
- * 
- * 
- * 
- * 1 Zorgen voor dat de Unit test macheert 
- * 2 Maak een nieuwe test met een nieuw speelveld waarbij er tussen het start en het eindpunt geen route mogelijk is. 
- * 
+ *
+ * 1. Rekening houden met u afstand (bepaalde plaatsen zal je meerdere keren
+ * moeten bezoeken) 2. Effectieve route contrueert adhv alle vorige stappen
+ *
+ *
+ *
+ * 1 Zorgen voor dat de Unit test macheert 2 Maak een nieuwe test met een nieuw
+ * speelveld waarbij er tussen het start en het eindpunt geen route mogelijk is.
+ *
  */

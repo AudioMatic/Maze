@@ -35,7 +35,7 @@ public class CanvasPanel extends JPanel {
         
         super.paintComponent(g);
         
-        speelveldUI.drawSquares(g);
+        speelveldUI.drawSpeelveld(g);
         
     }
 

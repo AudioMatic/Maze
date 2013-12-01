@@ -7,12 +7,13 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 import domain.Speelveld.VeldType;
+import java.util.Iterator;
 import java.util.Objects;
 /**
  *
  * @author AudioMatic
  */
-public class Route {
+public class Route implements Iterable<Knooppunt> {
     
     
        private List<Knooppunt>kortsteWeg = new ArrayList<>();
@@ -54,6 +55,11 @@ public class Route {
     @Override
     public String toString() {
         return "Route{" + "kortsteWeg=" + kortsteWeg + '}';
+    }
+
+    @Override
+    public Iterator<Knooppunt> iterator() {
+        return kortsteWeg.iterator();
     }
     
     
