@@ -7,6 +7,7 @@ package ui;
 import domain.Speelveld.VeldType;
 import domain.Generators.SpeelveldGenerator;
 import domain.Route;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,9 +20,14 @@ public class Launcher {
      */
     public static void main(String[] args) {
         CanvasJFrame map = new CanvasJFrame();
-
-        VeldType speelveld[][] = new VeldType[50][100];
-        SpeelveldGenerator speelvgen = new SpeelveldGenerator(speelveld, 50, 100, 0.4);
+        int aantalRijen = Integer.parseInt(JOptionPane.showInputDialog("Geef het aantal rijen in"));
+        int aantalKolommen = Integer.parseInt(JOptionPane.showInputDialog("Geef het aantal kolommen in"));
+        double verhoudingLeegMuren = Double.parseDouble(JOptionPane.showInputDialog("Geef de verhouding in tussen muren en lege velden in (Bijvoorbeeld 40)."
+                + "\n" + "Hoe kleiner het getal, hoe meer muren de doolhof heeft"));
+        
+        
+        VeldType speelveld[][] = new VeldType[aantalRijen][aantalKolommen];
+        SpeelveldGenerator speelvgen = new SpeelveldGenerator(speelveld, aantalRijen, aantalKolommen, (verhoudingLeegMuren/100));
         SpeelveldUI eenspeelveld = new SpeelveldUI(speelveld);
         
         Route route = eenspeelveld.geefRoute(eenspeelveld.getLeegKnooppunt(), eenspeelveld.getLeegKnooppunt());
