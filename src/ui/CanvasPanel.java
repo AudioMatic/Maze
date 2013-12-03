@@ -18,8 +18,10 @@ import javax.swing.*;
  */
 public class CanvasPanel extends JPanel {
     private SpeelveldUI speelveldUI;
-    public CanvasPanel(SpeelveldUI speelveldui) {
+    private RouteUI routeUI;
+    public CanvasPanel(SpeelveldUI speelveldui , RouteUI routeUI) {
         this.speelveldUI = speelveldui;
+        this.routeUI = routeUI;
         
 
     }

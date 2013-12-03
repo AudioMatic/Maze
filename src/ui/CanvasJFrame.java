@@ -37,9 +37,11 @@ public class CanvasJFrame extends JFrame {
             setVisible(true);
         }
 
-    void load(SpeelveldUI eenspeelveld) {
+    void load(SpeelveldUI eenspeelveld , RouteUI eenroute) {
             SpeelveldUI speelveld = eenspeelveld;
-         getContentPane().add(new CanvasPanel(speelveld));
+            RouteUI route = eenroute;
+         getContentPane().add(new CanvasPanel(speelveld , route));
+         
          
          
             
