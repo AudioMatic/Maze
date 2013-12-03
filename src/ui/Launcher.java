@@ -32,6 +32,7 @@ public class Launcher {
         
         Route route = eenspeelveld.geefRoute(eenspeelveld.getLeegKnooppunt(), eenspeelveld.getLeegKnooppunt());
         RouteUI eenRouteUI = new RouteUI(route);
+       
 //        Route korsteWeg = eenspeelveld.geefRoute(new Knooppunt(0,0), new Knooppunt(5,3));
         map.load(eenspeelveld , eenRouteUI );
 

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ui;
 
 import domain.Knooppunt;
@@ -11,28 +10,37 @@ import domain.Route;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+
 /**
  *
  * @author johan
  */
 public class RouteUI {
-    
+
     private Route r;
-    
-    RouteUI(Route r){
-        this.r=r;
+
+    RouteUI(Route r) {
+        this.r = r;
     }
-            
-    
-    public void drawRoute(Graphics g){
-        Graphics2D routeUI = (Graphics2D) g ;
+
+    public void drawRoute(Graphics g) {
+        Graphics2D routeUI = (Graphics2D) g;
         //routeUI.setBackground(Color.WHITE);
-       
-        for(Knooppunt eenKnooppunt : this.r){
-            routeUI.setColor(Color.BLUE);
-            routeUI.fillRect(eenKnooppunt.kol * 20, eenKnooppunt.rij * 20 , 20, 20);
+
+        int count = 0;
+        for (Knooppunt eenKnooppunt : this.r) {
+            if (count == 0) {
+                routeUI.setColor(Color.GREEN);
+                routeUI.fillRect(eenKnooppunt.kol * 20, eenKnooppunt.rij * 20, 20, 20);
+                count++;
+            } else {
+                routeUI.setColor(Color.BLUE);
+                routeUI.fillRect(eenKnooppunt.kol * 20, eenKnooppunt.rij * 20, 20, 20);
+                count++;
+            }
+
         }
-        
+
     }
-    
+
 }
