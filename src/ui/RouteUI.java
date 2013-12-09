@@ -34,22 +34,31 @@ public class RouteUI {
         Graphics2D routeUI = (Graphics2D) g;
         //routeUI.setBackground(Color.WHITE);
 
-        int count = 0;
+        boolean first = true;
+        int counter =  0;
+        int test = r.size()-1;
         for (Knooppunt eenKnooppunt : this.r) {
-            if (count == 0) {
+            if (first == true) {
                 routeUI.setColor(Color.GREEN);
                 routeUI.fillRect(eenKnooppunt.kol * 20, eenKnooppunt.rij * 20, 20, 20);
-                count++;
-            } else if (r.iterator().hasNext() == false) {
+                first = false;
+                counter++;
+            } else if (counter == test) {
                 routeUI.setColor(Color.RED);
                 routeUI.fillRect(eenKnooppunt.kol * 20, eenKnooppunt.rij * 20, 20, 20);
             } else {
                 routeUI.setColor(Color.BLUE);
                 routeUI.fillRect(eenKnooppunt.kol * 20, eenKnooppunt.rij * 20, 20, 20);
-                count++;
+                counter++;
             }
 
         }
+        
+//        while(this.r.iterator().hasNext()){
+//            Knooppunt eenKnooppunt = r.
+//             routeUI.setColor(Color.BLUE);
+//           routeUI.fillRect(eenKnooppunt.kol * 20, eenKnooppunt.rij * 20, 20, 20);
+//        }
 
 
     }
