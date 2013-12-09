@@ -33,7 +33,7 @@ public class RouteUI {
                 routeUI.setColor(Color.GREEN);
                 routeUI.fillRect(eenKnooppunt.kol * 20, eenKnooppunt.rij * 20, 20, 20);
                 count++;
-            } else if (r.iterator().hasNext() == false) {
+            } else if (r.size() == count) {
                  routeUI.setColor(Color.RED);
                 routeUI.fillRect(eenKnooppunt.kol * 20, eenKnooppunt.rij * 20, 20, 20);
             } else {
@@ -43,6 +43,7 @@ public class RouteUI {
             }
 
         }
+        
 
     }
 }

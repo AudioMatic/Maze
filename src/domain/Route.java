@@ -33,7 +33,10 @@ public class Route implements Iterable<Knooppunt> {
         this.kortsteWeg.add(0, knooppunt);
         
     }
-
+    
+   public int size(){
+       return this.kortsteWeg.size();
+   }
     
 
     @Override
