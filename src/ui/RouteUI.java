@@ -22,7 +22,14 @@ public class RouteUI {
     RouteUI(Route r) {
         this.r = r;
     }
-
+    
+    
+    
+    
+   /**
+    * Tekent de route in de JPanel
+    * 
+    */
     public void drawRoute(Graphics g) {
         Graphics2D routeUI = (Graphics2D) g;
         //routeUI.setBackground(Color.WHITE);

@@ -26,7 +26,11 @@ public class SpeelveldGenerator extends Speelveld {
         genSpeelveld(aandeelLeeg);
 
     }
-
+/**
+ * 
+ * @param Geef het aantal rijen mee aan de generator
+ * @throws IllegalArgumentException 
+ */
     private void setRij(int rij) throws IllegalArgumentException {
         if (rij <= 0) {
             throw new IllegalArgumentException("Rij mag niet onder 0 gaan");
@@ -34,14 +38,23 @@ public class SpeelveldGenerator extends Speelveld {
         this.rij = rij;
 
     }
-
+/**
+ * 
+ * @param Geef het aantal kolommen mee aan de generator
+ * @throws IllegalArgumentException 
+ */
     private void setKol(int kol) throws IllegalArgumentException {
         if (rij <= 0) {
             throw new IllegalArgumentException("Kolom mag niet onder 0 gaan");
         }
         this.kol = kol;
     }
-
+/**
+ * 
+ * @param Geef het aandeel lege muren mee aan de generator
+ * @return Geeft een speelveld van veldtypes terug die op willekeurige plaatsen lege velden als muren bevat
+ * @throws IllegalArgumentException 
+ */
     private VeldType[][] genSpeelveld(double aandeelLeeg) throws IllegalArgumentException {
         if(aandeelLeeg < 0 || aandeelLeeg > 1) throw new IllegalArgumentException("Getal moet tussen 0 en 1 liggen");
 

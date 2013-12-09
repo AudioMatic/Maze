@@ -23,12 +23,18 @@ public class Route implements Iterable<Knooppunt> {
        
         
     }
-
+/**
+ * 
+ * @param knooppunt 
+ */
      public void appendKnooppunt(Knooppunt knooppunt){
         this.kortsteWeg.add(knooppunt);
         
     }
-    
+    /**
+     * 
+     * @param knooppunt 
+     */
     public void prependKnooppunt(Knooppunt knooppunt){
         this.kortsteWeg.add(0, knooppunt);
         
@@ -59,7 +65,10 @@ public class Route implements Iterable<Knooppunt> {
     public String toString() {
         return "Route{" + "kortsteWeg=" + kortsteWeg + '}';
     }
-
+/**
+ * 
+ * @return 
+ */
     @Override
     public Iterator<Knooppunt> iterator() {
         return kortsteWeg.iterator();

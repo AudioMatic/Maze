@@ -16,11 +16,17 @@ public class Knooppunt {
             setRij(rij);
             setKol(kol);
         }
-
+/**
+ * 
+ * @param rij 
+ */
     private void setRij(int rij) {
         this.rij = rij;
     }
-
+/**
+ * 
+ * @param kol 
+ */
     private void setKol(int kol) {
         this.kol = kol;
     }
@@ -58,5 +64,20 @@ public class Knooppunt {
         return "["+ this.kol + "|"+this.rij+"]";
     }
     
-   // Done so far..
+
 }
+
+/**
+ *  ____________________________________
+/ BOFH excuse #16:                   \
+|                                    |
+| somebody was calculating pi on the |
+\ server                             /
+ ------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+ */
