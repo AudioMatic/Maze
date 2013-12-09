@@ -6,7 +6,6 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import domain.Speelveld.VeldType;
 import java.util.Iterator;
 import java.util.Objects;
 /**
@@ -42,6 +41,10 @@ public class Route implements Iterable<Knooppunt> {
     
    public int size(){
        return this.kortsteWeg.size();
+   }
+   
+   public Knooppunt get(int i){
+       return this.kortsteWeg.get(i);
    }
     
 

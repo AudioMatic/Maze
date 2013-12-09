@@ -8,7 +8,6 @@ import domain.Speelveld.VeldType;
 import domain.Generators.SpeelveldGenerator;
 import domain.Route;
 import javax.swing.JOptionPane;
-import javax.swing.JDialog;
 
 /**
  *
@@ -25,19 +24,22 @@ public class Launcher {
         int aantalKolommen = Integer.parseInt(JOptionPane.showInputDialog("Geef het aantal kolommen in"));
         double verhoudingLeegMuren = Double.parseDouble(JOptionPane.showInputDialog("Geef de verhouding in tussen muren en lege velden in (Bijvoorbeeld 40)."
                 + "\n" + "Hoe kleiner het getal, hoe meer muren de doolhof heeft"));
-        
-        
+
         VeldType speelveld[][] = new VeldType[aantalRijen][aantalKolommen];
-        SpeelveldGenerator speelvgen = new SpeelveldGenerator(speelveld, aantalRijen, aantalKolommen, (verhoudingLeegMuren/100));
+        SpeelveldGenerator speelvgen = new SpeelveldGenerator(speelveld, aantalRijen, aantalKolommen, (verhoudingLeegMuren / 100));
         SpeelveldUI eenspeelveld = new SpeelveldUI(speelveld);
-        
+
         Route route = eenspeelveld.geefRoute(eenspeelveld.getLeegKnooppunt(), eenspeelveld.getLeegKnooppunt());
         RouteUI eenRouteUI = new RouteUI(route);
-       
+
 //        Route korsteWeg = eenspeelveld.geefRoute(new Knooppunt(0,0), new Knooppunt(5,3));
-        map.load(eenspeelveld , eenRouteUI );
-        route.
-        
+        map.load(eenspeelveld, eenRouteUI);
+
+        JOptionPane.showMessageDialog(map,
+                "Startknooppunt: " + route.get(0).toString() + "\n"
+                + "Eindknooppunt: " + route.get(route.size() -1).toString() + "\n"
+                + "Afgelegde afstand:" + (route.size()-1)
+        );
 
     }
 
