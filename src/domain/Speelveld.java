@@ -50,6 +50,8 @@ public class Speelveld {
         if(speelveld == null) throw new IllegalArgumentException("Er is geen speelveld meegegeven");
         if(speelveld.length > 200) throw new IllegalArgumentException("Je kan maar maximaal 200 rijen opgeven");
         if(speelveld[0].length > 200) throw new IllegalArgumentException("Je kan maar maximaal 200 kolommen opgeven");
+        if(speelveld.length <= 1) throw new IllegalArgumentException("Je kan minimaal maar 2 voor rij ingeven");
+        if(speelveld[0].length <= 1) throw new IllegalArgumentException("Je kan minimaal maar 2 voor kolom ingeven");
         this.speelveld = speelveld;
     }
 

@@ -99,7 +99,10 @@ public class Launcher {
                 SpeelveldGenerator speelvgen = new SpeelveldGenerator(speelveld, aantalRijen, aantalKolommen, (verhoudingLeegMuren / 100));
                 eenspeelveld = new SpeelveldUI(speelveld);
                 route = eenspeelveld.geefRoute(eenspeelveld.getLeegKnooppunt(), eenspeelveld.getLeegKnooppunt());
-                eenRouteUI = new RouteUI(route);
+                if(route != null){
+                     eenRouteUI = new RouteUI(route);
+                }
+               
                 isCorrect = true;
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(map, e.getMessage());
@@ -107,12 +110,16 @@ public class Launcher {
         }
 //        Route korsteWeg = eenspeelveld.geefRoute(new Knooppunt(0,0), new Knooppunt(5,3));
         map.load(eenspeelveld, eenRouteUI);
-
-        JOptionPane.showMessageDialog(map,
+       if(route != null){
+            JOptionPane.showMessageDialog(map,
                 "Startknooppunt: " + route.get(0).toString() + "\n"
                 + "Eindknooppunt: " + route.get(route.size() - 1).toString() + "\n"
                 + "Afgelegde afstand:" + (route.size() - 1)
         );
+       } else {
+           JOptionPane.showMessageDialog(map, "Er is geen route");
+       }
+       
 
     }
 

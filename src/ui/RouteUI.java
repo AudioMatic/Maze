@@ -27,6 +27,14 @@ public class RouteUI {
         if(r == null) throw new IllegalArgumentException("Er is geen route");
         this.r = r;
     }
+
+    public Route getR() {
+        return r;
+    }
+
+   
+    
+    
     
     
     

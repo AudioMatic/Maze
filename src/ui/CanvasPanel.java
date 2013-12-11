@@ -35,7 +35,10 @@ public class CanvasPanel extends JPanel {
         super.paintComponent(g);
         
         speelveldUI.drawSpeelveld(g);
-        routeUI.drawRoute(g);
+        if(routeUI.getR() != null){
+           routeUI.drawRoute(g); 
+        }
+        
         
     }
 
