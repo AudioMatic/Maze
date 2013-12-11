@@ -6,10 +6,7 @@ package ui;
 
 //imports
 import domain.Speelveld;
-
 import java.awt.Graphics;
-
-
 import javax.swing.*;
 
 /**

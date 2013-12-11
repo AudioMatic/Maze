@@ -14,7 +14,7 @@ import javax.swing.JFrame;
  * @author johan
  */
 public class CanvasJFrame extends JFrame {
-  //  private CanvasPanel panel = new CanvasPanel(null);
+
     
         public CanvasJFrame() {
             initUI();
