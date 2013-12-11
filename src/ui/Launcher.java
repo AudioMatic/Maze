@@ -44,13 +44,47 @@ public class Launcher {
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(map, "Je moet een geheel getal in geven");
                     invAantalRijen = JOptionPane.showInputDialog("Geef het aantal rijen in");
+                    if (invAantalRijen == null) {
+                        System.exit(0);
+                    }
                 }
 
             }
         }
-        aantalKolommen = Integer.parseInt(JOptionPane.showInputDialog("Geef het aantal kolommen in"));
-        verhoudingLeegMuren = Double.parseDouble(JOptionPane.showInputDialog("Geef de verhouding in tussen muren en lege velden in (Bijvoorbeeld 40)."
-                + "\n" + "Hoe kleiner het getal, hoe meer muren de doolhof heeft"));
+        invAantalKolommen = JOptionPane.showInputDialog("Geef het aantal kolommen in");
+        if (invAantalKolommen == null) {
+            System.exit(0);
+        } else {
+            boolean isEenGetal = false;
+            while (isEenGetal == false) {
+                try {
+                    aantalKolommen = Integer.parseInt(invAantalKolommen);
+                    isEenGetal = true;
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(map, "Je moet een geheel getal in geven");
+                    invAantalKolommen = JOptionPane.showInputDialog("Geef het aantal kolommen in");
+                }
+
+            }
+        }
+        invVerhouding = JOptionPane.showInputDialog("Geef de verhouding in tussen lege velden en muren in (Bijvoorbeeld 40)."
+                + "\n" + "Hoe kleiner het getal, hoe meer muren de doolhof heeft");
+        if (invVerhouding == null) {
+            System.exit(0);
+        } else {
+            boolean isEenGetal = false;
+            while (isEenGetal == false) {
+                try {
+                    verhoudingLeegMuren = Double.parseDouble(invVerhouding);
+                    isEenGetal = true;
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(map, "Je moet een geheel getal in geven");
+                    invVerhouding = JOptionPane.showInputDialog("Geef de verhouding in tussen lege velden en muren in (Bijvoorbeeld 40)."
+                            + "\n" + "Hoe kleiner het getal, hoe meer muren de doolhof heeft");
+                }
+
+            }
+        }
 
         try {
             speelveld = new VeldType[aantalRijen][aantalKolommen];
