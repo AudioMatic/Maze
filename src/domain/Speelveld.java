@@ -95,7 +95,7 @@ public class Speelveld {
      * @param start startknooppunt
      * @param bezocht : een dubbele array bestaande uit routemetadata die afstand en de vorige stap bijhouden
      * Hiermee bezoek je alle mogelijke velden die je vanaf het startknooppunt kan bezoeken.
-     * Dit stopt wanneer je velden meer hebt die null zijn of velden waarvan de afstand veel langer is.
+     * Dit stopt wanneer je geen veld meer kan bezoeken die null is of de afstand van dat veld groter is dan jouw afgelegde afstand tot nu toe
      * 
      */
     private void bezoekVeld(Knooppunt knooppunt, RouteMetaData bezocht[][], Knooppunt prevKnooppunt, int afstand) {
