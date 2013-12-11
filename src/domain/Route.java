@@ -27,7 +27,8 @@ public class Route implements Iterable<Knooppunt> {
  * @param knooppunt
  * Voegt een knooppunt toe achteraan de arraylist
  */
-     public void appendKnooppunt(Knooppunt knooppunt){
+     public void appendKnooppunt(Knooppunt knooppunt)throws IllegalArgumentException{
+         if(knooppunt == null) throw new IllegalArgumentException("Je hebt geen knooppunt meegegeven");
         this.kortsteWeg.add(knooppunt);
         
     }
@@ -36,7 +37,8 @@ public class Route implements Iterable<Knooppunt> {
      * @param knooppunt 
      * voegt een knooppunt toe vooraan de arraylist
      */
-    public void prependKnooppunt(Knooppunt knooppunt){
+    public void prependKnooppunt(Knooppunt knooppunt)throws IllegalArgumentException {
+         if(knooppunt == null) throw new IllegalArgumentException("Je hebt geen knooppunt meegegeven");
         this.kortsteWeg.add(0, knooppunt);
         
     }

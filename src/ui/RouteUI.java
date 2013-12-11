@@ -20,8 +20,15 @@ public class RouteUI {
     private Route r;
 
     RouteUI(Route r) {
+        setR(r);
+    }
+
+    public void setR(Route r)throws IllegalArgumentException {
+        if(r == null) throw new IllegalArgumentException("Er is geen route");
         this.r = r;
     }
+    
+    
     
     
     
@@ -43,7 +50,7 @@ public class RouteUI {
                 routeUI.fillRect(eenKnooppunt.kol * 20, eenKnooppunt.rij * 20, 20, 20);
                 first = false;
                 counter++;
-            } else if (counter == test) {
+            } else if (counter == test) { // last element
                 routeUI.setColor(Color.RED);
                 routeUI.fillRect(eenKnooppunt.kol * 20, eenKnooppunt.rij * 20, 20, 20);
             } else {

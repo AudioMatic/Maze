@@ -27,7 +27,7 @@ public class Knooppunt {
  * 
  * @param kol 
  */
-    private void setKol(int kol) {
+    private void setKol(int kol)  {     
         this.kol = kol;
     }
 

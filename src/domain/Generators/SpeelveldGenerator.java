@@ -56,7 +56,7 @@ public class SpeelveldGenerator extends Speelveld {
  * @throws IllegalArgumentException 
  */
     private VeldType[][] genSpeelveld(double aandeelLeeg) throws IllegalArgumentException {
-        if(aandeelLeeg < 0 || aandeelLeeg > 1) throw new IllegalArgumentException("Getal moet tussen 0 en 1 liggen");
+        if(aandeelLeeg < 0 || aandeelLeeg > 1) throw new IllegalArgumentException("De verhouding tussen lege velden en muren moet tussen 0 en 100 liggen");
 
         int max = 2;
         int min = 1;
