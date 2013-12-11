@@ -4,9 +4,6 @@
  */
 package domain;
 
-import java.util.ArrayList;
-import java.util.List;
-import ui.Launcher;
 
 /**
  *
@@ -49,7 +46,10 @@ public class Speelveld {
         setSpeelveld(speelveld);
     }
 
-    private void setSpeelveld(VeldType[][] speelveld) {
+    private void setSpeelveld(VeldType[][] speelveld)throws IllegalArgumentException {
+        if(speelveld == null) throw new IllegalArgumentException("Er is geen speelveld meegegeven");
+        if(speelveld.length > 200) throw new IllegalArgumentException("Je kan maar maximaal 200 rijen opgeven");
+        if(speelveld[0].length > 200) throw new IllegalArgumentException("Je kan maar maximaal 200 kolommen opgeven");
         this.speelveld = speelveld;
     }
 
