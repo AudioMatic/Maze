@@ -53,6 +53,14 @@ public class Speelveld {
         this.speelveld = speelveld;
     }
 
+    
+    /**
+     * 
+     * @param start startknooppunt
+     * @param stop eindknooppunt
+     * @return de kortste route
+     * @throws IllegalArgumentException 
+     */
     public Route geefRoute(Knooppunt start, Knooppunt stop) throws IllegalArgumentException {
         if(knooppuntOpMuur(stop) == true || knooppuntOpMuur(start) == true) throw new IllegalArgumentException("start en/of stop mogen niet op een muur vallen");
 
@@ -84,12 +92,11 @@ public class Speelveld {
 
     /**
      *
-     * @param start
-     * @param bezocht
-     *
-     * Zoek alle mogelijke velden die je kan bezoeken Het kan ook best mogelijk
-     * zijn dat je hetzelfde veld moet bezoeken eer dat je aan u bestemming
-     * bent.
+     * @param start startknooppunt
+     * @param bezocht : een dubbele array bestaande uit routemetadata die afstand en de vorige stap bijhouden
+     * Hiermee bezoek je alle mogelijke velden die je vanaf het startknooppunt kan bezoeken.
+     * Dit stopt wanneer je velden meer hebt die null zijn of velden waarvan de afstand veel langer is.
+     * 
      */
     private void bezoekVeld(Knooppunt knooppunt, RouteMetaData bezocht[][], Knooppunt prevKnooppunt, int afstand) {
         RouteMetaData routemd = new RouteMetaData();
@@ -134,7 +141,11 @@ public class Speelveld {
         }
 
     }
-
+    
+    /**
+     * 
+     * @return Een willekeurig knooppunt op het speelveld.
+     */
     public Knooppunt getLeegKnooppunt() {
 
         int maxRij = this.speelveld.length;
@@ -159,6 +170,15 @@ public class Speelveld {
         return (this.speelveld[knooppunt.rij][knooppunt.kol] == Speelveld.VeldType.MUUR);
 
     }
+    
+    /**
+     * 
+     * @param routemd : velden bestaande uit routemetadata
+     * @param eind : eindknooppunt
+     * @return : geeft de korste route terug door alle vorige stappen terug te nemen tot het startknooppunt
+     *             want die geeft als vorigestap null terug.
+     */
+    
 
     private Route contrueerRoute(RouteMetaData routemd[][], Knooppunt eind) {
         Route korsteRoute = null;

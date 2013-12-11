@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file://home/student/r0430236/Vakken/Algo%201/Maze/src/ui/SpeelveldUI.java</file>
-        <file>file://home/student/r0430236/Vakken/Algo%201/Maze/src/ui/Launcher.java</file>
-        <file>file://home/student/r0430236/Vakken/Algo%201/Maze/src/domain/Speelveld.java</file>
-        <file>file://home/student/r0430236/Vakken/Algo%201/Maze/src/domain/Route.java</file>
-    </open-files>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/johan/Documents/KHLeuven/algo1/Maze/src/ui/SpeelveldUI.java</file>
-            <file>file:/home/johan/Documents/KHLeuven/algo1/Maze/src/domain/Speelveld.java</file>
-            <file>file:/home/johan/Documents/KHLeuven/algo1/Maze/src/domain/speelveldGen/SpeelveldGenerator.java</file>
-            <file>file:/home/johan/Documents/KHLeuven/algo1/Maze/src/ui/CanvasJFrame.java</file>
-            <file>file:/home/johan/Documents/KHLeuven/algo1/Maze/src/ui/Launcher.java</file>
+            <file>file:/C:/Users/Johan/Documents/KHLeuven/Maze/src/ui/SpeelveldUI.java</file>
+            <file>file:/C:/Users/Johan/Documents/KHLeuven/Maze/src/domain/Knooppunt.java</file>
+            <file>file:/C:/Users/Johan/Documents/KHLeuven/Maze/src/ui/Launcher.java</file>
+            <file>file:/C:/Users/Johan/Documents/KHLeuven/Maze/src/domain/Generators/RouteGenerator.java</file>
+            <file>file:/C:/Users/Johan/Documents/KHLeuven/Maze/src/domain/Route.java</file>
+            <file>file:/C:/Users/Johan/Documents/KHLeuven/Maze/src/domain/Generators/SpeelveldGenerator.java</file>
+            <file>file:/C:/Users/Johan/Documents/KHLeuven/Maze/src/ui/CanvasPanel.java</file>
+            <file>file:/C:/Users/Johan/Documents/KHLeuven/Maze/src/ui/RouteUI.java</file>
         </group>
     </open-files>
 </project-private>
